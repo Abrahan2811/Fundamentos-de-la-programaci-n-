@@ -27,7 +27,7 @@ public class Main {
         String subcadena = palabra.substring(6);
         System.out.println("Subcadena desde la posicion 7: " + subcadena);
 
-        int uOcurrencia = palabra.lastIndexOf("ligit");
+        int uOcurrencia = palabra.lastIndexOf("li");
         System.out.println("Ultima ocurrencia de ´li´: " + uOcurrencia);
 
 
