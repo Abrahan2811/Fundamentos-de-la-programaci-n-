@@ -1,1 +1,1 @@
-# En este repositorio subire todas mis tareas porfesor
+# En este repositorio subire todas mis tareas profesor
