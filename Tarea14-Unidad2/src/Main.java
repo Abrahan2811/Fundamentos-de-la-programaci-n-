@@ -34,14 +34,19 @@ public class Main {
         String decimal = conversion.substring(punto+1);
        // System.out.println(entero+ " " + decimal);
 
-        double diferencia = Integer.valueOf(entero) - Integer.valueOf(decimal);
-        double diferenciaDos = Integer.valueOf(decimal) - Integer.valueOf(entero);
-        double sumaDiferencias = diferencia + diferenciaDos;
-        double multiplicacion = sumaDiferencias * 2;
+        //double diferencia = Integer.valueOf(entero) - Integer.valueOf(decimal);
+       // double diferenciaDos = Integer.valueOf(decimal) - Integer.valueOf(entero);
+        int Entero = Integer.valueOf(entero);
+        int Decimal = Integer.valueOf(decimal);
+        double Diferenciados = (Math.abs(Entero-Decimal)*2);
+
+
+
+
         //System.out.println(multiplicacion);
 
 
-        System.out.println(correoInvertido+segundaParte + "|" + suma + "|" + multiplicacion);
+        System.out.println(correoInvertido+segundaParte + "|" + suma + "|" + Diferenciados);
 
     }
 }
