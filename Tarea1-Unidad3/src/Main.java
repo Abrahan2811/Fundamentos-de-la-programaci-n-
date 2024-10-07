@@ -1,3 +1,7 @@
+import javax.print.attribute.standard.PrinterMessageFromOperator;
+
+
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -9,31 +13,48 @@ public class Main {
         int primerPalito = cadena.indexOf("|");
         int ultimoPalit = cadena.lastIndexOf("|");
 
+
         //PrimeraParte
         String nombre = cadena.substring(0,primerEspacio);
         String apellido = cadena.substring(primerEspacio+1,primerPalito);
-        String nombreCompleto = nombre + " " + apellido;
+        //String nombreCompleto = nombre + " " + apellido;
 
-        String nombreCifrado = nombreCompleto.replace('a','1')
+        char primerCaracter = nombre.charAt(0);
+        char ultimoCaracter = apellido.charAt(apellido.length()-1);
+       /* nombre.replace((char) (0), ultimoCaracter);
+        apellido.replace((char) (apellido.length() - 1), primerCaracter);*/
+        //System.out.println(primerCaracter +" " + ultimoCaracter);
+
+        String nombreCifrado = nombre
+                .replace('a','1')
                 .replace('e','2')
                 .replace('i','3')
                 .replace('o','4')
-                .replace('u','5');
+                .replace('u','5')
+                .replace(primerCaracter,ultimoCaracter);
 
-      char primerCaracter = nombreCifrado.charAt(0);
-      char ultimoCaracter = nombreCifrado.charAt(nombreCompleto.length()-1);
-        nombreCifrado.replace((char) 0, ultimoCaracter);
-        nombreCifrado.replace((char) (nombreCifrado.length() - 1), primerCaracter);
+        String apellidoCifrado = apellido
+                .replace('a','1')
+                .replace('e','2')
+                .replace('i','3')
+                .replace('o','4')
+                .replace('u','5')
+                .replace(ultimoCaracter,primerCaracter);
 
-        //System.out.println(nombreCifrado);
+
+
+
         //Segunda parte
 
         String IP = cadena.substring(primerPalito+1,ultimoPalit);
-        String primerNum = IP.substring(0,3),
-                segundoNum = IP.substring(4,7),
-                tercerNum = IP.substring(8,9),
-                cuarNum = IP.substring(10);
-        //System.out.println(primerNum+" "+segundoNum+" "+tercerNum+" "+cuarNum);
+        int primerPunto = IP.indexOf(".");
+        int ultimoPunto = IP.lastIndexOf(".");
+        int segundoPunto = IP.indexOf(".",primerPunto+1);
+        String primerNum = IP.substring(0,primerPunto),
+                segundoNum = IP.substring(primerPunto+1,segundoPunto),
+                tercerNum = IP.substring(segundoPunto+1,ultimoPunto),
+                cuarNum = IP.substring(ultimoPunto+1);
+       // System.out.println(primerNum+" "+segundoNum+" "+tercerNum+" "+cuarNum);
 
         String hexadeUno = Integer.toHexString(Integer.valueOf(primerNum));
         String hexadeDos = Integer.toHexString(Integer.valueOf(segundoNum));
@@ -51,7 +72,7 @@ public class Main {
 
 
         //FINAL :D
-        System.out.println(nombreCifrado+ "|" +IPHexa+ "|" +NoFormula);
+        System.out.println(nombreCifrado + " " + apellidoCifrado + "|" + IPHexa + "|" + NoFormula);
 
 
     }
