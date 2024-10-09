@@ -14,6 +14,7 @@ public class Main {
         //funcion para inveritir el nombre
         String correoInvertido = new StringBuilder(correoDos).reverse().toString();
         //System.out.println(correoInvertido+segundaParte);
+            
 
         //indicar punto para localizar fecha
         int primerguion = fechaAscenso.indexOf("-");
